@@ -1,27 +1,28 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "About Me";
+
+
+const identity = {
+  firstName: "Kazuya",
+  country: "San Diego, California",
+  occupation: "Computer Science Student at UC San Diego",
+  hobbies: ["Trumpet", "Baseball", "Watching old movies"],
+  skills: ["C++", "Go", "Python", "GNC"],
+};
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
-		<body>
-            <h1>My Astro Site</h1>
-            <h1>About Me</h1>
-            <h2>... and my new Astro site!</h2>
-          
-            <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-          
-            <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-          </body>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<p> Some Information about me: </p>
+	<ul>
+		<il>My name is {identity.firstName}.</il>
+		<li>I live in {identity.country} as a {identity.occupation}.</li>
+		<li>
+			Some of my skills are:
+			<ul>
+				{identity.skills.map((skill) => <li class="skill">{skill}</li>)}
+			</ul>
+		</li>
+	</ul>
+</BaseLayout>
